@@ -6,7 +6,7 @@ O projeto foi projetado para ser altamente paralelo, utilizando uma arquitetura 
 
 ---
 
-## 📌 Sobre o Projeto
+##  Sobre o Projeto
 
 O K-Vertex Cover é um problema clássico de otimização em grafos. O objetivo é descobrir se é possível cobrir todas as arestas de um grafo utilizando, no máximo, `K` vértices. 
 
@@ -14,7 +14,7 @@ Em vez de rodar um algoritmo sequencial em um processador comum (C/Python), este
 
 ---
 
-## ⚙️ Arquitetura do Hardware
+##  Arquitetura do Hardware
 
 * **Topologia:** Manager-Worker. O módulo principal (Manager) gerencia uma fila circular (FIFO) e distribui os ramos da árvore de busca matemática.
 * **Paralelismo:** Configurado com `NUM_WORKERS = 2` (expansível via parâmetros).
@@ -23,7 +23,7 @@ Em vez de rodar um algoritmo sequencial em um processador comum (C/Python), este
 
 ---
 
-## 📊 Resultados e Desempenho (Síntese)
+##  Resultados e Desempenho (Síntese)
 
 O projeto foi sintetizado utilizando o **Intel Quartus II** para a FPGA **Cyclone II (EP2C20F484C7)**. Os resultados provam a alta eficiência do circuito dedicado em comparação com uma abordagem via software tradicional:
 
@@ -37,7 +37,7 @@ O projeto foi sintetizado utilizando o **Intel Quartus II** para a FPGA **Cyclon
 
 ---
 
-## 🛠️ Como Utilizar na Placa DE1
+##  Como Utilizar na Placa DE1
 
 ### 1. Configurando o Grafo
 Crie ou modifique o arquivo `grafo.hex` na raiz do projeto. Ele deve conter a lista de arestas (um par de vértices por linha, em formato hexadecimal). Recompile o projeto no Quartus para injetar a nova memória no chip.
@@ -60,7 +60,7 @@ Após gravar o arquivo `.sof` na placa DE1, utilize os periféricos conforme aba
 
 ---
 
-## 🚀 Simulação no PC (Icarus Verilog)
+##  Simulação no PC (Icarus Verilog)
 
 Caso queira simular o comportamento das ondas de sinal antes de gravar na placa, você pode utilizar o **Icarus Verilog**:
 
