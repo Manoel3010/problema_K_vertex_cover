@@ -1,0 +1,1148 @@
+Analysis & Synthesis report for KvertexCover
+Tue Mar 31 16:14:07 2026
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |top_level|worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|step
+ 10. State Machine - |top_level|worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|state
+ 11. State Machine - |top_level|worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|step
+ 12. State Machine - |top_level|worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|state
+ 13. State Machine - |top_level|worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|step
+ 14. State Machine - |top_level|worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|state
+ 15. State Machine - |top_level|worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|step
+ 16. State Machine - |top_level|worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|state
+ 17. Registers Removed During Synthesis
+ 18. General Register Statistics
+ 19. Registers Packed Into Inferred Megafunctions
+ 20. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 21. Source assignments for worker_wrapper:workers[1].u_worker|altsyncram:rom_rtl_0|altsyncram_1pp1:auto_generated
+ 22. Source assignments for worker_wrapper:workers[0].u_worker|altsyncram:rom_rtl_0|altsyncram_1pp1:auto_generated
+ 23. Parameter Settings for User Entity Instance: Top-level Entity: |top_level
+ 24. Parameter Settings for User Entity Instance: worker_wrapper:workers[0].u_worker
+ 25. Parameter Settings for User Entity Instance: worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core
+ 26. Parameter Settings for User Entity Instance: worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor
+ 27. Parameter Settings for User Entity Instance: worker_wrapper:workers[1].u_worker
+ 28. Parameter Settings for User Entity Instance: worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core
+ 29. Parameter Settings for User Entity Instance: worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor
+ 30. Parameter Settings for Inferred Entity Instance: worker_wrapper:workers[1].u_worker|altsyncram:rom_rtl_0
+ 31. Parameter Settings for Inferred Entity Instance: worker_wrapper:workers[0].u_worker|altsyncram:rom_rtl_0
+ 32. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 33. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 34. altsyncram Parameter Settings by Entity Instance
+ 35. Port Connectivity Checks: "worker_wrapper:workers[1].u_worker"
+ 36. Port Connectivity Checks: "worker_wrapper:workers[0].u_worker"
+ 37. Port Connectivity Checks: "decodificador_7seg:display_dezena"
+ 38. Port Connectivity Checks: "decodificador_7seg:display_unidade"
+ 39. Elapsed Time Per Partition
+ 40. Analysis & Synthesis Messages
+ 41. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Mar 31 16:14:06 2026           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; KvertexCover                                    ;
+; Top-level Entity Name              ; top_level                                       ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 9,206                                           ;
+;     Total combinational functions  ; 8,950                                           ;
+;     Dedicated logic registers      ; 3,039                                           ;
+; Total registers                    ; 3039                                            ;
+; Total pins                         ; 89                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 8,192                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C20F484C7       ;                    ;
+; Top-level entity name                                                      ; top_level          ; KvertexCover       ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                   ;
++------------------------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                     ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                  ; Library ;
++------------------------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------+---------+
+; worker_wrapper.v                                     ; yes             ; User Verilog HDL File                                 ; C:/Users/joaom/Documents/worker_wrapper.v                                     ;         ;
+; vertex_remove_neighbor.v                             ; yes             ; User Verilog HDL File                                 ; C:/Users/joaom/Documents/vertex_remove_neighbor.v                             ;         ;
+; vertex_remove_core.v                                 ; yes             ; User Verilog HDL File                                 ; C:/Users/joaom/Documents/vertex_remove_core.v                                 ;         ;
+; top_level.v                                          ; yes             ; User Verilog HDL File                                 ; C:/Users/joaom/Documents/top_level.v                                          ;         ;
+; grafo.hex                                            ; yes             ; Auto-Found Hexadecimal (Intel-Format) File            ; C:/Users/joaom/Documents/grafo.hex                                            ;         ;
+; altsyncram.tdf                                       ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf              ;         ;
+; stratix_ram_block.inc                                ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc       ;         ;
+; lpm_mux.inc                                          ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc                 ;         ;
+; lpm_decode.inc                                       ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc              ;         ;
+; aglobal130.inc                                       ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc              ;         ;
+; a_rdenreg.inc                                        ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_rdenreg.inc               ;         ;
+; altrom.inc                                           ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altrom.inc                  ;         ;
+; altram.inc                                           ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altram.inc                  ;         ;
+; altdpram.inc                                         ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc                ;         ;
+; db/altsyncram_1pp1.tdf                               ; yes             ; Auto-Generated Megafunction                           ; C:/Users/joaom/Documents/db/altsyncram_1pp1.tdf                               ;         ;
+; db/kvertexcover.ram0_worker_wrapper_252520d8.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/joaom/Documents/db/kvertexcover.ram0_worker_wrapper_252520d8.hdl.mif ;         ;
+; lpm_divide.tdf                                       ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_divide.tdf              ;         ;
+; abs_divider.inc                                      ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/abs_divider.inc             ;         ;
+; sign_div_unsign.inc                                  ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/sign_div_unsign.inc         ;         ;
+; db/lpm_divide_15m.tdf                                ; yes             ; Auto-Generated Megafunction                           ; C:/Users/joaom/Documents/db/lpm_divide_15m.tdf                                ;         ;
+; db/sign_div_unsign_8kh.tdf                           ; yes             ; Auto-Generated Megafunction                           ; C:/Users/joaom/Documents/db/sign_div_unsign_8kh.tdf                           ;         ;
+; db/alt_u_div_ive.tdf                                 ; yes             ; Auto-Generated Megafunction                           ; C:/Users/joaom/Documents/db/alt_u_div_ive.tdf                                 ;         ;
+; db/add_sub_lkc.tdf                                   ; yes             ; Auto-Generated Megafunction                           ; C:/Users/joaom/Documents/db/add_sub_lkc.tdf                                   ;         ;
+; db/add_sub_mkc.tdf                                   ; yes             ; Auto-Generated Megafunction                           ; C:/Users/joaom/Documents/db/add_sub_mkc.tdf                                   ;         ;
+; db/lpm_divide_ucm.tdf                                ; yes             ; Auto-Generated Megafunction                           ; C:/Users/joaom/Documents/db/lpm_divide_ucm.tdf                                ;         ;
++------------------------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 9,206 ;
+;                                             ;       ;
+; Total combinational functions               ; 8950  ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 6570  ;
+;     -- 3 input functions                    ; 1918  ;
+;     -- <=2 input functions                  ; 462   ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 8764  ;
+;     -- arithmetic mode                      ; 186   ;
+;                                             ;       ;
+; Total registers                             ; 3039  ;
+;     -- Dedicated logic registers            ; 3039  ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 89    ;
+; Total memory bits                           ; 8192  ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 3167  ;
+; Total fan-out                               ; 43861 ;
+; Average fan-out                             ; 3.59  ;
++---------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                               ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                        ; Library Name ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------+--------------+
+; |top_level                                ; 8950 (6842)       ; 3039 (1825)  ; 8192        ; 0            ; 0       ; 0         ; 89   ; 0            ; |top_level                                                                                                 ; work         ;
+;    |decodificador_7seg:display_dezena|    ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|decodificador_7seg:display_dezena                                                               ; work         ;
+;    |decodificador_7seg:display_unidade|   ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|decodificador_7seg:display_unidade                                                              ; work         ;
+;    |lpm_divide:Div0|                      ; 17 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|lpm_divide:Div0                                                                                 ; work         ;
+;       |lpm_divide_ucm:auto_generated|     ; 17 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|lpm_divide:Div0|lpm_divide_ucm:auto_generated                                                   ; work         ;
+;          |sign_div_unsign_8kh:divider|    ; 17 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|lpm_divide:Div0|lpm_divide_ucm:auto_generated|sign_div_unsign_8kh:divider                       ; work         ;
+;             |alt_u_div_ive:divider|       ; 17 (17)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|lpm_divide:Div0|lpm_divide_ucm:auto_generated|sign_div_unsign_8kh:divider|alt_u_div_ive:divider ; work         ;
+;    |lpm_divide:Mod0|                      ; 20 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|lpm_divide:Mod0                                                                                 ; work         ;
+;       |lpm_divide_15m:auto_generated|     ; 20 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|lpm_divide:Mod0|lpm_divide_15m:auto_generated                                                   ; work         ;
+;          |sign_div_unsign_8kh:divider|    ; 20 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|lpm_divide:Mod0|lpm_divide_15m:auto_generated|sign_div_unsign_8kh:divider                       ; work         ;
+;             |alt_u_div_ive:divider|       ; 20 (20)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|lpm_divide:Mod0|lpm_divide_15m:auto_generated|sign_div_unsign_8kh:divider|alt_u_div_ive:divider ; work         ;
+;    |worker_wrapper:workers[0].u_worker|   ; 1031 (87)         ; 607 (268)    ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|worker_wrapper:workers[0].u_worker                                                              ; work         ;
+;       |altsyncram:rom_rtl_0|              ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|worker_wrapper:workers[0].u_worker|altsyncram:rom_rtl_0                                         ; work         ;
+;          |altsyncram_1pp1:auto_generated| ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|worker_wrapper:workers[0].u_worker|altsyncram:rom_rtl_0|altsyncram_1pp1:auto_generated          ; work         ;
+;       |vertex_cover_core:u_core|          ; 408 (408)         ; 153 (153)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core                                     ; work         ;
+;       |vertex_remove_neighbor:u_neighbor| ; 536 (536)         ; 186 (186)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor                            ; work         ;
+;    |worker_wrapper:workers[1].u_worker|   ; 1030 (87)         ; 607 (268)    ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|worker_wrapper:workers[1].u_worker                                                              ; work         ;
+;       |altsyncram:rom_rtl_0|              ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|worker_wrapper:workers[1].u_worker|altsyncram:rom_rtl_0                                         ; work         ;
+;          |altsyncram_1pp1:auto_generated| ; 0 (0)             ; 0 (0)        ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|worker_wrapper:workers[1].u_worker|altsyncram:rom_rtl_0|altsyncram_1pp1:auto_generated          ; work         ;
+;       |vertex_cover_core:u_core|          ; 407 (407)         ; 153 (153)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core                                     ; work         ;
+;       |vertex_remove_neighbor:u_neighbor| ; 536 (536)         ; 186 (186)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_level|worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor                            ; work         ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                    ;
++---------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+------+------------------------------------------------------+
+; Name                                                                                              ; Type ; Mode           ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                                  ;
++---------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+------+------------------------------------------------------+
+; worker_wrapper:workers[0].u_worker|altsyncram:rom_rtl_0|altsyncram_1pp1:auto_generated|ALTSYNCRAM ; AUTO ; True Dual Port ; 64           ; 64           ; 64           ; 64           ; 4096 ; db/KvertexCover.ram0_worker_wrapper_252520d8.hdl.mif ;
+; worker_wrapper:workers[1].u_worker|altsyncram:rom_rtl_0|altsyncram_1pp1:auto_generated|ALTSYNCRAM ; AUTO ; True Dual Port ; 64           ; 64           ; 64           ; 64           ; 4096 ; db/KvertexCover.ram0_worker_wrapper_252520d8.hdl.mif ;
++---------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+------+------------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------+
+; State Machine - |top_level|worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|step ;
++---------+---------+---------+------------------------------------------------------------------------+
+; Name    ; step.00 ; step.10 ; step.01                                                                ;
++---------+---------+---------+------------------------------------------------------------------------+
+; step.00 ; 0       ; 0       ; 0                                                                      ;
+; step.01 ; 1       ; 0       ; 1                                                                      ;
+; step.10 ; 1       ; 1       ; 0                                                                      ;
++---------+---------+---------+------------------------------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |top_level|worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|state                                  ;
++------------------+--------------+--------------+------------------+------------------+------------------+-----------------+------------+
+; Name             ; state.FINISH ; state.CANCEL ; state.CHECK_DONE ; state.REMOVE_NEI ; state.FIND_NEIGH ; state.SELECT_V1 ; state.IDLE ;
++------------------+--------------+--------------+------------------+------------------+------------------+-----------------+------------+
+; state.IDLE       ; 0            ; 0            ; 0                ; 0                ; 0                ; 0               ; 0          ;
+; state.SELECT_V1  ; 0            ; 0            ; 0                ; 0                ; 0                ; 1               ; 1          ;
+; state.FIND_NEIGH ; 0            ; 0            ; 0                ; 0                ; 1                ; 0               ; 1          ;
+; state.REMOVE_NEI ; 0            ; 0            ; 0                ; 1                ; 0                ; 0               ; 1          ;
+; state.CHECK_DONE ; 0            ; 0            ; 1                ; 0                ; 0                ; 0               ; 1          ;
+; state.CANCEL     ; 0            ; 1            ; 0                ; 0                ; 0                ; 0               ; 1          ;
+; state.FINISH     ; 1            ; 0            ; 0                ; 0                ; 0                ; 0               ; 1          ;
++------------------+--------------+--------------+------------------+------------------+------------------+-----------------+------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------+
+; State Machine - |top_level|worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|step ;
++----------+----------+----------+------------------------------------------------------------+
+; Name     ; step.000 ; step.010 ; step.001                                                   ;
++----------+----------+----------+------------------------------------------------------------+
+; step.000 ; 0        ; 0        ; 0                                                          ;
+; step.001 ; 1        ; 0        ; 1                                                          ;
+; step.010 ; 1        ; 1        ; 0                                                          ;
++----------+----------+----------+------------------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------+
+; State Machine - |top_level|worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|state        ;
++-------------------+------------------+--------------+-------------------+------------+--------------+
+; Name              ; state.CHECK_DONE ; state.REMOVE ; state.FIND_VERTEX ; state.IDLE ; state.FINISH ;
++-------------------+------------------+--------------+-------------------+------------+--------------+
+; state.IDLE        ; 0                ; 0            ; 0                 ; 0          ; 0            ;
+; state.FIND_VERTEX ; 0                ; 0            ; 1                 ; 1          ; 0            ;
+; state.REMOVE      ; 0                ; 1            ; 0                 ; 1          ; 0            ;
+; state.CHECK_DONE  ; 1                ; 0            ; 0                 ; 1          ; 0            ;
+; state.FINISH      ; 0                ; 0            ; 0                 ; 1          ; 1            ;
++-------------------+------------------+--------------+-------------------+------------+--------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------+
+; State Machine - |top_level|worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|step ;
++---------+---------+---------+------------------------------------------------------------------------+
+; Name    ; step.00 ; step.10 ; step.01                                                                ;
++---------+---------+---------+------------------------------------------------------------------------+
+; step.00 ; 0       ; 0       ; 0                                                                      ;
+; step.01 ; 1       ; 0       ; 1                                                                      ;
+; step.10 ; 1       ; 1       ; 0                                                                      ;
++---------+---------+---------+------------------------------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |top_level|worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|state                                  ;
++------------------+--------------+--------------+------------------+------------------+------------------+-----------------+------------+
+; Name             ; state.FINISH ; state.CANCEL ; state.CHECK_DONE ; state.REMOVE_NEI ; state.FIND_NEIGH ; state.SELECT_V1 ; state.IDLE ;
++------------------+--------------+--------------+------------------+------------------+------------------+-----------------+------------+
+; state.IDLE       ; 0            ; 0            ; 0                ; 0                ; 0                ; 0               ; 0          ;
+; state.SELECT_V1  ; 0            ; 0            ; 0                ; 0                ; 0                ; 1               ; 1          ;
+; state.FIND_NEIGH ; 0            ; 0            ; 0                ; 0                ; 1                ; 0               ; 1          ;
+; state.REMOVE_NEI ; 0            ; 0            ; 0                ; 1                ; 0                ; 0               ; 1          ;
+; state.CHECK_DONE ; 0            ; 0            ; 1                ; 0                ; 0                ; 0               ; 1          ;
+; state.CANCEL     ; 0            ; 1            ; 0                ; 0                ; 0                ; 0               ; 1          ;
+; state.FINISH     ; 1            ; 0            ; 0                ; 0                ; 0                ; 0               ; 1          ;
++------------------+--------------+--------------+------------------+------------------+------------------+-----------------+------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------+
+; State Machine - |top_level|worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|step ;
++----------+----------+----------+------------------------------------------------------------+
+; Name     ; step.000 ; step.010 ; step.001                                                   ;
++----------+----------+----------+------------------------------------------------------------+
+; step.000 ; 0        ; 0        ; 0                                                          ;
+; step.001 ; 1        ; 0        ; 1                                                          ;
+; step.010 ; 1        ; 1        ; 0                                                          ;
++----------+----------+----------+------------------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------+
+; State Machine - |top_level|worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|state        ;
++-------------------+------------------+--------------+-------------------+------------+--------------+
+; Name              ; state.CHECK_DONE ; state.REMOVE ; state.FIND_VERTEX ; state.IDLE ; state.FINISH ;
++-------------------+------------------+--------------+-------------------+------------+--------------+
+; state.IDLE        ; 0                ; 0            ; 0                 ; 0          ; 0            ;
+; state.FIND_VERTEX ; 0                ; 0            ; 1                 ; 1          ; 0            ;
+; state.REMOVE      ; 0                ; 1            ; 0                 ; 1          ; 0            ;
+; state.CHECK_DONE  ; 1                ; 0            ; 0                 ; 1          ; 0            ;
+; state.FINISH      ; 0                ; 0            ; 0                 ; 1          ; 1            ;
++-------------------+------------------+--------------+-------------------+------------+--------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                 ;
++-------------------------------------------------------------------------------+--------------------+
+; Register name                                                                 ; Reason for Removal ;
++-------------------------------------------------------------------------------+--------------------+
+; worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|state~11 ; Lost fanout        ;
+; worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|state~12 ; Lost fanout        ;
+; worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|state~13 ; Lost fanout        ;
+; worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|state~14 ; Lost fanout        ;
+; worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|step~9            ; Lost fanout        ;
+; worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|state~9           ; Lost fanout        ;
+; worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|state~10          ; Lost fanout        ;
+; worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|state~11 ; Lost fanout        ;
+; worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|state~12 ; Lost fanout        ;
+; worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|state~13 ; Lost fanout        ;
+; worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|state~14 ; Lost fanout        ;
+; worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|step~9            ; Lost fanout        ;
+; worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|state~9           ; Lost fanout        ;
+; worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|state~10          ; Lost fanout        ;
+; Total Number of Removed Registers = 14                                        ;                    ;
++-------------------------------------------------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 3039  ;
+; Number of registers using Synchronous Clear  ; 115   ;
+; Number of registers using Synchronous Load   ; 273   ;
+; Number of registers using Asynchronous Clear ; 917   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1532  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                                      ;
++-------------------------------------------------------------+----------------------------------------------+------+
+; Register Name                                               ; Megafunction                                 ; Type ;
++-------------------------------------------------------------+----------------------------------------------+------+
+; worker_wrapper:workers[1].u_worker|mem_data_core[0..63]     ; worker_wrapper:workers[1].u_worker|rom_rtl_0 ; RAM  ;
+; worker_wrapper:workers[1].u_worker|mem_data_neighbor[0..63] ; worker_wrapper:workers[1].u_worker|rom_rtl_0 ; RAM  ;
+; worker_wrapper:workers[0].u_worker|mem_data_core[0..63]     ; worker_wrapper:workers[0].u_worker|rom_rtl_0 ; RAM  ;
+; worker_wrapper:workers[0].u_worker|mem_data_neighbor[0..63] ; worker_wrapper:workers[0].u_worker|rom_rtl_0 ; RAM  ;
++-------------------------------------------------------------+----------------------------------------------+------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top_level|worker_wrapper:workers[1].u_worker|push_neighbor                                  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |top_level|worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|neighbor[14] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top_level|worker_wrapper:workers[0].u_worker|push_core                                      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |top_level|worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|neighbor[30] ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |top_level|fifo_count[4]                                                                     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |top_level|rd_ptr[2]                                                                         ;
+; 5:1                ; 64 bits   ; 192 LEs       ; 128 LEs              ; 64 LEs                 ; Yes        ; |top_level|best_mask[12]~reg0                                                                ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |top_level|final_k[4]                                                                        ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top_level|wr_ptr[3]                                                                         ;
+; 4:1                ; 69 bits   ; 138 LEs       ; 69 LEs               ; 69 LEs                 ; Yes        ; |top_level|worker_wrapper:workers[0].u_worker|res_mask_sol[47]                               ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |top_level|worker_wrapper:workers[0].u_worker|task_active                                    ;
+; 4:1                ; 69 bits   ; 138 LEs       ; 69 LEs               ; 69 LEs                 ; Yes        ; |top_level|worker_wrapper:workers[1].u_worker|res_mask_sol[18]                               ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |top_level|worker_wrapper:workers[1].u_worker|done                                           ;
+; 16:1               ; 96 bits   ; 960 LEs       ; 960 LEs              ; 0 LEs                  ; Yes        ; |top_level|task_mask[0][5]                                                                   ;
+; 16:1               ; 96 bits   ; 960 LEs       ; 960 LEs              ; 0 LEs                  ; Yes        ; |top_level|task_mask[1][51]                                                                  ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |top_level|all_finished~reg0                                                                 ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |top_level|stop_counter[5]                                                                   ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top_level|worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|addr[0]               ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top_level|worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|addr[2]               ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top_level|worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|addr[4]      ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top_level|worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|addr[4]      ;
+; 9:1                ; 6 bits    ; 36 LEs        ; 6 LEs                ; 30 LEs                 ; Yes        ; |top_level|worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|i[5]                  ;
+; 9:1                ; 6 bits    ; 36 LEs        ; 6 LEs                ; 30 LEs                 ; Yes        ; |top_level|worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|i[0]                  ;
+; 8:1                ; 96 bits   ; 480 LEs       ; 192 LEs              ; 288 LEs                ; Yes        ; |top_level|fifo_data[15][49]                                                                 ;
+; 8:1                ; 96 bits   ; 480 LEs       ; 192 LEs              ; 288 LEs                ; Yes        ; |top_level|fifo_data[14][91]                                                                 ;
+; 8:1                ; 96 bits   ; 480 LEs       ; 192 LEs              ; 288 LEs                ; Yes        ; |top_level|fifo_data[13][43]                                                                 ;
+; 8:1                ; 96 bits   ; 480 LEs       ; 192 LEs              ; 288 LEs                ; Yes        ; |top_level|fifo_data[12][5]                                                                  ;
+; 8:1                ; 96 bits   ; 480 LEs       ; 192 LEs              ; 288 LEs                ; Yes        ; |top_level|fifo_data[11][30]                                                                 ;
+; 8:1                ; 96 bits   ; 480 LEs       ; 192 LEs              ; 288 LEs                ; Yes        ; |top_level|fifo_data[10][30]                                                                 ;
+; 8:1                ; 96 bits   ; 480 LEs       ; 192 LEs              ; 288 LEs                ; Yes        ; |top_level|fifo_data[9][30]                                                                  ;
+; 8:1                ; 96 bits   ; 480 LEs       ; 192 LEs              ; 288 LEs                ; Yes        ; |top_level|fifo_data[8][31]                                                                  ;
+; 8:1                ; 96 bits   ; 480 LEs       ; 192 LEs              ; 288 LEs                ; Yes        ; |top_level|fifo_data[7][18]                                                                  ;
+; 8:1                ; 96 bits   ; 480 LEs       ; 192 LEs              ; 288 LEs                ; Yes        ; |top_level|fifo_data[6][77]                                                                  ;
+; 8:1                ; 96 bits   ; 480 LEs       ; 192 LEs              ; 288 LEs                ; Yes        ; |top_level|fifo_data[5][44]                                                                  ;
+; 8:1                ; 96 bits   ; 480 LEs       ; 192 LEs              ; 288 LEs                ; Yes        ; |top_level|fifo_data[4][3]                                                                   ;
+; 8:1                ; 96 bits   ; 480 LEs       ; 192 LEs              ; 288 LEs                ; Yes        ; |top_level|fifo_data[3][74]                                                                  ;
+; 8:1                ; 96 bits   ; 480 LEs       ; 192 LEs              ; 288 LEs                ; Yes        ; |top_level|fifo_data[2][71]                                                                  ;
+; 8:1                ; 96 bits   ; 480 LEs       ; 192 LEs              ; 288 LEs                ; Yes        ; |top_level|fifo_data[1][10]                                                                  ;
+; 10:1               ; 91 bits   ; 546 LEs       ; 273 LEs              ; 273 LEs                ; Yes        ; |top_level|fifo_data[0][62]                                                                  ;
+; 10:1               ; 5 bits    ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |top_level|fifo_data[0][66]                                                                  ;
+; 20:1               ; 6 bits    ; 78 LEs        ; 6 LEs                ; 72 LEs                 ; Yes        ; |top_level|worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|i[1]         ;
+; 20:1               ; 6 bits    ; 78 LEs        ; 6 LEs                ; 72 LEs                 ; Yes        ; |top_level|worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|i[2]         ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |top_level|worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[11]             ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |top_level|worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[5]              ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |top_level|worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[18]    ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |top_level|worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[22]    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |top_level|worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|step         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |top_level|worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|step         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |top_level|v_wr_ptr                                                                          ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |top_level|v_added                                                                           ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |top_level|worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|step         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |top_level|worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|step         ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |top_level|worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|v1           ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |top_level|worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|selected_vertex       ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |top_level|worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|v1           ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |top_level|worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|selected_vertex       ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |top_level|worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|Selector153           ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |top_level|worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|Selector154           ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |top_level|worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|Selector159  ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |top_level|worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|Selector158  ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 12 LEs               ; 9 LEs                  ; No         ; |top_level|worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|Selector147           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 12 LEs               ; 9 LEs                  ; No         ; |top_level|worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|Selector149           ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; No         ; |top_level|worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|Selector151           ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; No         ; |top_level|worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|Selector150           ;
+; 18:1               ; 4 bits    ; 48 LEs        ; 20 LEs               ; 28 LEs                 ; No         ; |top_level|worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|Selector150  ;
+; 18:1               ; 4 bits    ; 48 LEs        ; 20 LEs               ; 28 LEs                 ; No         ; |top_level|worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|Selector151  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Source assignments for worker_wrapper:workers[1].u_worker|altsyncram:rom_rtl_0|altsyncram_1pp1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                              ;
++---------------------------------+--------------------+------+-------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                               ;
++---------------------------------+--------------------+------+-------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Source assignments for worker_wrapper:workers[0].u_worker|altsyncram:rom_rtl_0|altsyncram_1pp1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                              ;
++---------------------------------+--------------------+------+-------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                               ;
++---------------------------------+--------------------+------+-------------------------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |top_level ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; MAX_EDGES      ; 64    ; Signed Integer                                   ;
+; NUM_WORKERS    ; 2     ; Signed Integer                                   ;
+; FIFO_DEPTH     ; 16    ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: worker_wrapper:workers[0].u_worker ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; MAX_EDGES      ; 64    ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core ;
++----------------+-------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------+
+; MAX_EDGES      ; 64    ; Signed Integer                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor ;
++----------------+-------+------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                     ;
++----------------+-------+------------------------------------------------------------------------------------------+
+; MAX_EDGES      ; 64    ; Signed Integer                                                                           ;
++----------------+-------+------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: worker_wrapper:workers[1].u_worker ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; MAX_EDGES      ; 64    ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core ;
++----------------+-------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------+
+; MAX_EDGES      ; 64    ; Signed Integer                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor ;
++----------------+-------+------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                     ;
++----------------+-------+------------------------------------------------------------------------------------------+
+; MAX_EDGES      ; 64    ; Signed Integer                                                                           ;
++----------------+-------+------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: worker_wrapper:workers[1].u_worker|altsyncram:rom_rtl_0   ;
++------------------------------------+------------------------------------------------------+----------------+
+; Parameter Name                     ; Value                                                ; Type           ;
++------------------------------------+------------------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                                    ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                                   ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                                  ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                                   ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                                  ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                                    ; Untyped        ;
+; OPERATION_MODE                     ; BIDIR_DUAL_PORT                                      ; Untyped        ;
+; WIDTH_A                            ; 64                                                   ; Untyped        ;
+; WIDTHAD_A                          ; 6                                                    ; Untyped        ;
+; NUMWORDS_A                         ; 64                                                   ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                         ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                                 ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                                 ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                                 ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                                 ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                                 ; Untyped        ;
+; WIDTH_B                            ; 64                                                   ; Untyped        ;
+; WIDTHAD_B                          ; 6                                                    ; Untyped        ;
+; NUMWORDS_B                         ; 64                                                   ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK0                                               ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK0                                               ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                               ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK0                                               ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                         ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                               ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                                 ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                                 ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                                 ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                                 ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                                 ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                                 ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                                    ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                                    ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                                 ; Untyped        ;
+; BYTE_SIZE                          ; 8                                                    ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                            ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                                 ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                                 ; Untyped        ;
+; INIT_FILE                          ; db/KvertexCover.ram0_worker_wrapper_252520d8.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                               ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                                    ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                               ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                               ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                      ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                      ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                                ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                                ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                                    ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone II                                           ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_1pp1                                      ; Untyped        ;
++------------------------------------+------------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: worker_wrapper:workers[0].u_worker|altsyncram:rom_rtl_0   ;
++------------------------------------+------------------------------------------------------+----------------+
+; Parameter Name                     ; Value                                                ; Type           ;
++------------------------------------+------------------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                                    ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                                   ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                                  ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                                   ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                                  ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                                    ; Untyped        ;
+; OPERATION_MODE                     ; BIDIR_DUAL_PORT                                      ; Untyped        ;
+; WIDTH_A                            ; 64                                                   ; Untyped        ;
+; WIDTHAD_A                          ; 6                                                    ; Untyped        ;
+; NUMWORDS_A                         ; 64                                                   ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                         ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                                 ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                                 ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                                 ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                                 ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                                 ; Untyped        ;
+; WIDTH_B                            ; 64                                                   ; Untyped        ;
+; WIDTHAD_B                          ; 6                                                    ; Untyped        ;
+; NUMWORDS_B                         ; 64                                                   ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK0                                               ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK0                                               ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                               ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK0                                               ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                         ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                               ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                                 ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                                 ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                                 ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                                 ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                                 ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                                 ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                                    ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                                    ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                                 ; Untyped        ;
+; BYTE_SIZE                          ; 8                                                    ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                            ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                                 ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                                 ; Untyped        ;
+; INIT_FILE                          ; db/KvertexCover.ram0_worker_wrapper_252520d8.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                               ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                                    ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                               ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                               ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                      ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                      ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                                ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                                ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                                    ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone II                                           ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_1pp1                                      ; Untyped        ;
++------------------------------------+------------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 5              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_15m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 5              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_ucm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                    ;
++-------------------------------------------+---------------------------------------------------------+
+; Name                                      ; Value                                                   ;
++-------------------------------------------+---------------------------------------------------------+
+; Number of entity instances                ; 2                                                       ;
+; Entity Instance                           ; worker_wrapper:workers[1].u_worker|altsyncram:rom_rtl_0 ;
+;     -- OPERATION_MODE                     ; BIDIR_DUAL_PORT                                         ;
+;     -- WIDTH_A                            ; 64                                                      ;
+;     -- NUMWORDS_A                         ; 64                                                      ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                            ;
+;     -- WIDTH_B                            ; 64                                                      ;
+;     -- NUMWORDS_B                         ; 64                                                      ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                  ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                            ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                    ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                               ;
+; Entity Instance                           ; worker_wrapper:workers[0].u_worker|altsyncram:rom_rtl_0 ;
+;     -- OPERATION_MODE                     ; BIDIR_DUAL_PORT                                         ;
+;     -- WIDTH_A                            ; 64                                                      ;
+;     -- NUMWORDS_A                         ; 64                                                      ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                            ;
+;     -- WIDTH_B                            ; 64                                                      ;
+;     -- NUMWORDS_B                         ; 64                                                      ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                  ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                            ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                    ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                               ;
++-------------------------------------------+---------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "worker_wrapper:workers[1].u_worker"                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; res_k_sol[31..5] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "worker_wrapper:workers[0].u_worker"                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; res_k_sol[31..5] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "decodificador_7seg:display_dezena"                                                                                                                                                ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; bin  ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (4 bits) it drives.  The 28 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "decodificador_7seg:display_unidade"                                                                                                                                               ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; bin  ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (4 bits) it drives.  The 28 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:26     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Tue Mar 31 16:13:34 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off KvertexCover -c KvertexCover
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file worker_wrapper.v
+    Info (12023): Found entity 1: worker_wrapper
+Info (12021): Found 1 design units, including 1 entities, in source file vertex_remove_neighbor.v
+    Info (12023): Found entity 1: vertex_remove_neighbor
+Info (12021): Found 1 design units, including 1 entities, in source file vertex_remove_core.v
+    Info (12023): Found entity 1: vertex_cover_core
+Info (12021): Found 2 design units, including 2 entities, in source file top_level.v
+    Info (12023): Found entity 1: top_level
+    Info (12023): Found entity 2: decodificador_7seg
+Info (12127): Elaborating entity "top_level" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at top_level.v(120): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at top_level.v(121): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at top_level.v(125): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at top_level.v(126): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at top_level.v(139): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at top_level.v(140): truncated value with size 32 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at top_level.v(155): truncated value with size 32 to match size of target (6)
+Info (12128): Elaborating entity "decodificador_7seg" for hierarchy "decodificador_7seg:display_unidade"
+Info (12128): Elaborating entity "worker_wrapper" for hierarchy "worker_wrapper:workers[0].u_worker"
+Warning (10030): Net "rom.data_a" at worker_wrapper.v(31) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "rom.waddr_a" at worker_wrapper.v(31) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "rom.we_a" at worker_wrapper.v(31) has no driver or initial value, using a default initial value '0'
+Info (12128): Elaborating entity "vertex_cover_core" for hierarchy "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core"
+Warning (10036): Verilog HDL or VHDL warning at vertex_remove_core.v(23): object "vertex_locked" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at vertex_remove_core.v(84): truncated value with size 32 to match size of target (7)
+Warning (10230): Verilog HDL assignment warning at vertex_remove_core.v(106): truncated value with size 32 to match size of target (7)
+Warning (10230): Verilog HDL assignment warning at vertex_remove_core.v(123): truncated value with size 32 to match size of target (7)
+Warning (10230): Verilog HDL assignment warning at vertex_remove_core.v(126): truncated value with size 32 to match size of target (7)
+Info (12128): Elaborating entity "vertex_remove_neighbor" for hierarchy "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor"
+Warning (10230): Verilog HDL assignment warning at vertex_remove_neighbor.v(80): truncated value with size 32 to match size of target (7)
+Warning (10230): Verilog HDL assignment warning at vertex_remove_neighbor.v(104): truncated value with size 32 to match size of target (7)
+Warning (10230): Verilog HDL assignment warning at vertex_remove_neighbor.v(107): truncated value with size 32 to match size of target (7)
+Warning (10230): Verilog HDL assignment warning at vertex_remove_neighbor.v(128): truncated value with size 32 to match size of target (7)
+Warning (10230): Verilog HDL assignment warning at vertex_remove_neighbor.v(156): truncated value with size 32 to match size of target (7)
+Info (19000): Inferred 2 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "worker_wrapper:workers[1].u_worker|rom_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to BIDIR_DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 64
+        Info (286033): Parameter WIDTH_B set to 64
+        Info (286033): Parameter WIDTHAD_A set to 6
+        Info (286033): Parameter WIDTHAD_B set to 6
+        Info (286033): Parameter NUMWORDS_A set to 64
+        Info (286033): Parameter NUMWORDS_B set to 64
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_REG_B set to CLOCK0
+        Info (286033): Parameter WRCONTROL_WRADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter INIT_FILE set to db/KvertexCover.ram0_worker_wrapper_252520d8.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "worker_wrapper:workers[0].u_worker|rom_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to BIDIR_DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 64
+        Info (286033): Parameter WIDTH_B set to 64
+        Info (286033): Parameter WIDTHAD_A set to 6
+        Info (286033): Parameter WIDTHAD_B set to 6
+        Info (286033): Parameter NUMWORDS_A set to 64
+        Info (286033): Parameter NUMWORDS_B set to 64
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_REG_B set to CLOCK0
+        Info (286033): Parameter WRCONTROL_WRADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter INIT_FILE set to db/KvertexCover.ram0_worker_wrapper_252520d8.hdl.mif
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0"
+Info (12130): Elaborated megafunction instantiation "worker_wrapper:workers[1].u_worker|altsyncram:rom_rtl_0"
+Info (12133): Instantiated megafunction "worker_wrapper:workers[1].u_worker|altsyncram:rom_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "64"
+    Info (12134): Parameter "WIDTH_B" = "64"
+    Info (12134): Parameter "WIDTHAD_A" = "6"
+    Info (12134): Parameter "WIDTHAD_B" = "6"
+    Info (12134): Parameter "NUMWORDS_A" = "64"
+    Info (12134): Parameter "NUMWORDS_B" = "64"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_REG_B" = "CLOCK0"
+    Info (12134): Parameter "WRCONTROL_WRADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/KvertexCover.ram0_worker_wrapper_252520d8.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_1pp1.tdf
+    Info (12023): Found entity 1: altsyncram_1pp1
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0"
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "5"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_15m.tdf
+    Info (12023): Found entity 1: lpm_divide_15m
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_8kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_8kh
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ive.tdf
+    Info (12023): Found entity 1: alt_u_div_ive
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_lkc.tdf
+    Info (12023): Found entity 1: add_sub_lkc
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_mkc.tdf
+    Info (12023): Found entity 1: add_sub_mkc
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0"
+Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "5"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ucm.tdf
+    Info (12023): Found entity 1: lpm_divide_ucm
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[0]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[0]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[0]~1"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[0]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[0]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[0]~1"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[0]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[0]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[0]~1"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[0]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[0]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[0]~1"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[1]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[1]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[1]~5"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[1]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[1]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[1]~5"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[1]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[1]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[1]~5"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[1]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[1]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[1]~5"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[2]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[2]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[2]~9"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[2]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[2]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[2]~9"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[2]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[2]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[2]~9"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[2]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[2]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[2]~9"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[3]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[3]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[3]~13"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[3]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[3]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[3]~13"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[3]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[3]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[3]~13"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[3]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[3]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[3]~13"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[31]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[31]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[31]~17"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[30]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[30]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[30]~21"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[29]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[29]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[29]~25"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[28]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[28]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[28]~29"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[27]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[27]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[27]~33"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[26]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[26]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[26]~37"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[25]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[25]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[25]~41"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[24]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[24]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[24]~45"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[23]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[23]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[23]~49"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[22]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[22]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[22]~53"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[21]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[21]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[21]~57"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[20]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[20]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[20]~61"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[19]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[19]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[19]~65"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[18]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[18]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[18]~69"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[17]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[17]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[17]~73"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[16]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[16]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[16]~77"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[15]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[15]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[15]~81"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[14]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[14]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[14]~85"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[13]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[13]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[13]~89"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[12]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[12]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[12]~93"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[11]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[11]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[11]~97"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[10]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[10]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[10]~101"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[9]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[9]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[9]~105"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[8]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[8]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[8]~109"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[7]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[7]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[7]~113"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[6]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[6]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[6]~117"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[5]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[5]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[5]~121"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[4]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[4]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[4]~125"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[31]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[31]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[31]~17"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[30]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[30]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[30]~21"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[29]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[29]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[29]~25"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[28]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[28]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[28]~29"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[27]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[27]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[27]~33"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[26]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[26]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[26]~37"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[25]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[25]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[25]~41"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[24]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[24]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[24]~45"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[23]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[23]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[23]~49"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[22]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[22]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[22]~53"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[21]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[21]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[21]~57"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[20]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[20]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[20]~61"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[19]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[19]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[19]~65"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[18]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[18]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[18]~69"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[17]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[17]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[17]~73"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[16]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[16]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[16]~77"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[15]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[15]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[15]~81"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[14]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[14]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[14]~85"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[13]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[13]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[13]~89"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[12]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[12]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[12]~93"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[11]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[11]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[11]~97"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[10]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[10]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[10]~101"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[9]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[9]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[9]~105"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[8]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[8]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[8]~109"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[7]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[7]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[7]~113"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[6]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[6]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[6]~117"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[5]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[5]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[5]~121"
+    Warning (13310): Register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[4]" is converted into an equivalent circuit using register "worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|k_out[4]~_emulated" and latch "worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|k_out[4]~125"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[31]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[31]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[31]~17"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[30]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[30]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[30]~21"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[29]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[29]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[29]~25"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[28]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[28]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[28]~29"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[27]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[27]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[27]~33"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[26]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[26]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[26]~37"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[25]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[25]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[25]~41"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[24]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[24]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[24]~45"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[23]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[23]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[23]~49"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[22]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[22]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[22]~53"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[21]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[21]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[21]~57"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[20]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[20]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[20]~61"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[19]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[19]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[19]~65"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[18]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[18]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[18]~69"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[17]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[17]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[17]~73"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[16]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[16]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[16]~77"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[15]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[15]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[15]~81"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[14]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[14]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[14]~85"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[13]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[13]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[13]~89"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[12]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[12]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[12]~93"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[11]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[11]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[11]~97"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[10]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[10]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[10]~101"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[9]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[9]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[9]~105"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[8]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[8]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[8]~109"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[7]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[7]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[7]~113"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[6]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[6]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[6]~117"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[5]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[5]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[5]~121"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[4]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[4]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[4]~125"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[31]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[31]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[31]~17"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[30]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[30]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[30]~21"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[29]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[29]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[29]~25"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[28]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[28]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[28]~29"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[27]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[27]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[27]~33"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[26]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[26]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[26]~37"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[25]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[25]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[25]~41"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[24]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[24]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[24]~45"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[23]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[23]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[23]~49"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[22]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[22]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[22]~53"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[21]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[21]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[21]~57"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[20]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[20]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[20]~61"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[19]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[19]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[19]~65"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[18]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[18]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[18]~69"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[17]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[17]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[17]~73"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[16]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[16]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[16]~77"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[15]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[15]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[15]~81"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[14]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[14]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[14]~85"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[13]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[13]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[13]~89"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[12]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[12]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[12]~93"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[11]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[11]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[11]~97"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[10]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[10]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[10]~101"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[9]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[9]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[9]~105"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[8]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[8]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[8]~109"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[7]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[7]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[7]~113"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[6]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[6]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[6]~117"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[5]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[5]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[5]~121"
+    Warning (13310): Register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[4]" is converted into an equivalent circuit using register "worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|k_out[4]~_emulated" and latch "worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|k_out[4]~125"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "hex1[1]" is stuck at GND
+Info (17049): 14 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/joaom/Documents/KvertexCover.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 9553 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 8 input pins
+    Info (21059): Implemented 81 output pins
+    Info (21061): Implemented 9336 logic cells
+    Info (21064): Implemented 128 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 152 warnings
+    Info: Peak virtual memory: 4658 megabytes
+    Info: Processing ended: Tue Mar 31 16:14:07 2026
+    Info: Elapsed time: 00:00:33
+    Info: Total CPU time (on all processors): 00:00:30
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/joaom/Documents/KvertexCover.map.smsg.
+
+

@@ -1,0 +1,60 @@
+
+State Machine - |top_level|worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|step
+Name step.00 step.10 step.01 
+step.00 0 0 0 
+step.01 1 0 1 
+step.10 1 1 0 
+
+State Machine - |top_level|worker_wrapper:workers[1].u_worker|vertex_remove_neighbor:u_neighbor|state
+Name state.FINISH state.CANCEL state.CHECK_DONE state.REMOVE_NEI state.FIND_NEIGH state.SELECT_V1 state.IDLE 
+state.IDLE 0 0 0 0 0 0 0 
+state.SELECT_V1 0 0 0 0 0 1 1 
+state.FIND_NEIGH 0 0 0 0 1 0 1 
+state.REMOVE_NEI 0 0 0 1 0 0 1 
+state.CHECK_DONE 0 0 1 0 0 0 1 
+state.CANCEL 0 1 0 0 0 0 1 
+state.FINISH 1 0 0 0 0 0 1 
+
+State Machine - |top_level|worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|step
+Name step.000 step.010 step.001 
+step.000 0 0 0 
+step.001 1 0 1 
+step.010 1 1 0 
+
+State Machine - |top_level|worker_wrapper:workers[1].u_worker|vertex_cover_core:u_core|state
+Name state.CHECK_DONE state.REMOVE state.FIND_VERTEX state.IDLE state.FINISH 
+state.IDLE 0 0 0 0 0 
+state.FIND_VERTEX 0 0 1 1 0 
+state.REMOVE 0 1 0 1 0 
+state.CHECK_DONE 1 0 0 1 0 
+state.FINISH 0 0 0 1 1 
+
+State Machine - |top_level|worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|step
+Name step.00 step.10 step.01 
+step.00 0 0 0 
+step.01 1 0 1 
+step.10 1 1 0 
+
+State Machine - |top_level|worker_wrapper:workers[0].u_worker|vertex_remove_neighbor:u_neighbor|state
+Name state.FINISH state.CANCEL state.CHECK_DONE state.REMOVE_NEI state.FIND_NEIGH state.SELECT_V1 state.IDLE 
+state.IDLE 0 0 0 0 0 0 0 
+state.SELECT_V1 0 0 0 0 0 1 1 
+state.FIND_NEIGH 0 0 0 0 1 0 1 
+state.REMOVE_NEI 0 0 0 1 0 0 1 
+state.CHECK_DONE 0 0 1 0 0 0 1 
+state.CANCEL 0 1 0 0 0 0 1 
+state.FINISH 1 0 0 0 0 0 1 
+
+State Machine - |top_level|worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|step
+Name step.000 step.010 step.001 
+step.000 0 0 0 
+step.001 1 0 1 
+step.010 1 1 0 
+
+State Machine - |top_level|worker_wrapper:workers[0].u_worker|vertex_cover_core:u_core|state
+Name state.CHECK_DONE state.REMOVE state.FIND_VERTEX state.IDLE state.FINISH 
+state.IDLE 0 0 0 0 0 
+state.FIND_VERTEX 0 0 1 1 0 
+state.REMOVE 0 1 0 1 0 
+state.CHECK_DONE 1 0 0 1 0 
+state.FINISH 0 0 0 1 1 

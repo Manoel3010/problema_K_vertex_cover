@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="KvertexCover">
+		<CBX_INST_ENTRY INSTANCE_NAME="|top_level|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_ucm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top_level|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_15m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top_level|worker_wrapper:workers[0].u_worker|altsyncram:rom_rtl_0" CBX_FILE_NAME="altsyncram_1pp1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|top_level|worker_wrapper:workers[1].u_worker|altsyncram:rom_rtl_0" CBX_FILE_NAME="altsyncram_1pp1.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
